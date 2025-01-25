@@ -15,7 +15,7 @@ Diseñar un módulo en odoo para gestionar el inventario de vehículos utilizado
 - kilometraje: Float
 - fecha_ultimo_mantenimiento: Date
 
-**operador**
+**fletes.vehiculos.operador**
 - name: Char
 
 **fletes.vehiculos.tipo**

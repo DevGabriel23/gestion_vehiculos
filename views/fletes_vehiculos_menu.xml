@@ -4,6 +4,7 @@
     <menuitem id="fletes_vehiculos_menu_root" name="Fletes">
         <menuitem id="fletes_vehiculos_first_level" name="Vehículos">
             <menuitem id="fletes_vehiculos_menu_action" action="fletes_vehiculos_action" />
+            <menuitem id="fletes_vehiculos_operador_menu_action" action="fletes_vehiculos_operador_action" />
         </menuitem>
     </menuitem>
 

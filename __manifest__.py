@@ -5,6 +5,7 @@
     'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'views/fletes_vehiculos_operador_view.xml',
         'views/fletes_vehiculos_view.xml',
         'views/fletes_vehiculos_menu.xml',
     ],

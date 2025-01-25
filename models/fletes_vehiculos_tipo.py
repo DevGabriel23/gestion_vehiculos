@@ -9,5 +9,5 @@ class fletes_vehiculos_tipo(models.Model):
         ('unique_type_name', 'UNIQUE(name)', 'El nombre del tipo de vehículo debe ser único.'),
     ]
     
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, string="Nombre")
     

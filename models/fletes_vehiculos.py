@@ -37,6 +37,7 @@ class fletes_vehiculos(models.Model):
     
     # Relationships
     tipo_vehiculo_id = fields.Many2one('fletes.vehiculos.tipo', string='Tipo de vehículo', required=True)
+    incidente_ids = fields.One2many('fletes.vehiculos.incidente', 'vehicle_id')
     
     # Computed methods
     @api.depends('capacidad', 'carga_promedio')

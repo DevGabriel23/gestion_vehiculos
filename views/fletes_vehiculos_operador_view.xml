@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fletes_vehiculos_operador_view_tree" model="ir.ui.view">
+        <field name="name">fletes.vehiculos.operador.view.tree</field>
+        <field name="model">fletes.vehiculos.operador</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="fletes_vehiculos_operador_action" model="ir.actions.act_window">
+        <field name="name">Operadores</field>
+        <field name="res_model">fletes.vehiculos.operador</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="fletes_vehiculos_operador_view_tree"/>
+    </record>
+
+</odoo>

@@ -40,6 +40,21 @@
                     <group>
                         <field name="fecha_ultimo_mantenimiento" readonly="1"/>
                     </group>
+
+                    <!-- Notebook -->
+                    <notebook>
+                        <page string="Registro de incidentes">
+                            <field name="incidente_ids" />
+                        </page>
+
+                        <page string="Asignacion de conductores">
+
+                        </page>
+
+                        <page string="Costo operativo del vehículo">
+                            
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
