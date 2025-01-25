@@ -1,6 +1,5 @@
 from odoo import models, fields, api
-from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_is_zero, float_compare
+from odoo.exceptions import UserError, ValidationError
 
 
 class fletes_vehiculos_costo(models.Model):
@@ -23,6 +22,14 @@ class fletes_vehiculos_costo(models.Model):
             if not record.monto:
                 return
             
-            if (float_is_zero(record.monto, precision_rounding=0.01) 
-                or float_compare(record.monto, 0.0, precision_rounding=0.01) < 0 ):
+            if record.monto <= 0:
                 raise UserError("El monto debe ser mayor a 0")
+    
+    @api.onchange('fecha')
+    def _onchange_fecha_(self):
+        for record in self:
+            if not record.fecha:
+                return
+            
+            if record.fecha < fields.Date.today():
+                raise ValidationError('La fecha no puede ser anterior a hoy')
