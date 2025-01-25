@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Búsqueda -->
+    <record id="fletes_vehiculos_search" model="ir.ui.view">
+        <field name="name">fletes.vehiculos.search</field>
+        <field name="model">fletes.vehiculos</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="matricula"/>
+                <field name="placas"/>
+                <field name="tipo_vehiculo_id"/>
+                <filter name="Vehículos disponibles" domain="[('estado', '=', 'disponible')]"/>
+                <filter name="Vehículos en mantenimiento" domain="[('estado', '=', 'mantenimiento')]"/>
+                <filter name="Vehículos inactivos" domain="[('estado', '=', 'inactivo')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Vista de formulario -->
+    <record id="fletes_vehiculos_view_form" model="ir.ui.view">
+        <field name="name">fletes.vehiculos.view.form</field>
+        <field name="model">fletes.vehiculos</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group name="name" string="Datos generales">
+                        <group class="col-6">
+                            <field name="matricula" />
+                            <field name="placas" />
+                            <field name="tipo_vehiculo_id"/>
+                            <field name="estado"/>
+                        </group>
+                        <group class="col-6">
+                            <field name="capacidad" />
+                            <field name="carga_promedio"/>
+                            <field name="capacidad_restante" readonly="1"/>
+                            <field name="kilometraje" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="fecha_ultimo_mantenimiento" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de árbol -->
+    <record id="fletes_vehiculos_view_tree" model="ir.ui.view">
+        <field name="name">fletes.vehiculos.view.tree</field>
+        <field name="model">fletes.vehiculos</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="matricula" />
+                <field name="placas" />
+                <field name="tipo_vehiculo_id" widget="badge"/>
+                <field name="capacidad" />
+                <field name="estado" widget="badge" decoration-muted="estado == 'inactivo'" decoration-success="estado == 'disponible'" decoration-info="estado == 'mantenimiento'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="fletes_vehiculos_action" model="ir.actions.act_window">
+        <field name="name">Vehiculos</field>
+        <field name="res_model">fletes.vehiculos</field>
+        <field name="view_mode">tree,form</field>            
+        <field name="view_id" ref="fletes_vehiculos_view_tree"/>
+    </record>
+
+</odoo>

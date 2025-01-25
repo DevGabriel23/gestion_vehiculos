@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_fletes_vehiculos,access_fletes_vehiculos,model_fletes_vehiculos,base.group_user,1,1,1,1
+access_fletes_vehiculos_tipo,access_fletes_vehiculos_tipo,model_fletes_vehiculos_tipo,base.group_user,1,1,1,1

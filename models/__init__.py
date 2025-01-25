@@ -1,0 +1,1 @@
+from . import fletes_vehiculos, fletes_vehiculos_tipo

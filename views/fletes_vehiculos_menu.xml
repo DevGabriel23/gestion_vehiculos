@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu jerárquico-->
+    <menuitem id="fletes_vehiculos_menu_root" name="Fletes">
+        <menuitem id="fletes_vehiculos_first_level" name="Vehículos">
+            <menuitem id="fletes_vehiculos_menu_action" action="fletes_vehiculos_action" />
+        </menuitem>
+    </menuitem>
+
+</odoo>
