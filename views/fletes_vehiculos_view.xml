@@ -38,7 +38,7 @@
                         </group>
                     </group>
                     <group>
-                        <field name="fecha_ultimo_mantenimiento" readonly="1"/>
+                        <field name="fecha_ultimo_mantenimiento"/>
                     </group>
 
                     <!-- Notebook -->
@@ -48,11 +48,11 @@
                         </page>
 
                         <page string="Asignacion de conductores">
-
+                            <field name="asignacion_ids" />
                         </page>
 
                         <page string="Costo operativo del vehículo">
-                            
+                            <field name="costo_ids" />
                         </page>
                     </notebook>
                 </sheet>

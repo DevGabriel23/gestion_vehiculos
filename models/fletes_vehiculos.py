@@ -29,7 +29,6 @@ class fletes_vehiculos(models.Model):
         tracking=True,
     )
     
-    
     # Computed fields
     capacidad_restante = fields.Float(string='Capacidad restante (kg)', compute='_compute_capacidad_restante')
     kilometraje = fields.Float(string='Kilometraje', default=0, required=True)
@@ -38,6 +37,8 @@ class fletes_vehiculos(models.Model):
     # Relationships
     tipo_vehiculo_id = fields.Many2one('fletes.vehiculos.tipo', string='Tipo de vehículo', required=True)
     incidente_ids = fields.One2many('fletes.vehiculos.incidente', 'vehicle_id')
+    asignacion_ids = fields.One2many('fletes.vehiculos.asignacion.operador', 'vehicle_assigned_id')
+    costo_ids = fields.One2many('fletes.vehiculos.costo', 'vehicle_cost_id')
     
     # Computed methods
     @api.depends('capacidad', 'carga_promedio')

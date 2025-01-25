@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="fletes_vehiculos_asignacion_operador_view_form" model="ir.ui.view">
+        <field name="name">fletes.vehiculos.asignacion.operador.view.form</field>
+        <field name="model">fletes.vehiculos.asignacion.operador</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="fecha_asignacion" />
+                            <field name="kilometraje_inicial" />
+                            <field name="operador_id" />
+                        </group>
+                        <group>
+                            <field name="fecha_finalizacion" />
+                            <field name="kilometraje_final" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="fletes_vehiculos_asignacion_operador_view_tree" model="ir.ui.view">
+        <field name="name">fletes.vehiculos.asignacion.operador.view.tree</field>
+        <field name="model">fletes.vehiculos.asignacion.operador</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="fecha_asignacion" />
+                <field name="operador_id" />
+                <field name="fecha_finalizacion" />
+                <field name="kilometraje_inicial" />
+                <field name="kilometraje_final" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>

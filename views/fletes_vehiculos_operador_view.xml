@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="fletes_vehiculos_operador_view_form" model="ir.ui.view">
+        <field name="name">fletes.vehiculos.operador.view.form</field>
+        <field name="model">fletes.vehiculos.operador</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="is_assigned" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="fletes_vehiculos_operador_view_tree" model="ir.ui.view">
         <field name="name">fletes.vehiculos.operador.view.tree</field>
         <field name="model">fletes.vehiculos.operador</field>
         <field name="arch" type="xml">
             <tree string="">
                 <field name="name" />
+                <field name="is_assigned"/>
             </tree>
         </field>
     </record>
