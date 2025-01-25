@@ -14,11 +14,3 @@ class fletes_vehiculos_operador(models.Model):
     
     asignacion_ids = fields.One2many('fletes.vehiculos.asignacion.operador', 'operador_id')
     
-    @api.depends('asignacion_ids')
-    def _depends_asignacion_ids(self):
-        for record in self:
-            record.is_assigned = False
-            for asignacion in record.asignacion_ids:
-                if asignacion.fecha_asignacion and not asignacion.fecha_finalizacion:
-                    record.is_assigned = True
-                    break

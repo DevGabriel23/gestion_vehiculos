@@ -31,7 +31,7 @@ class fletes_vehiculos(models.Model):
     
     # Computed fields
     capacidad_restante = fields.Float(string='Capacidad restante (kg)', compute='_compute_capacidad_restante')
-    kilometraje = fields.Float(string='Kilometraje', default=0, required=True)
+    kilometraje = fields.Float(string='Kilometraje', compute='_compute_kilometraje',  default=0, required=True)
     fecha_ultimo_mantenimiento = fields.Date(string='Fecha de último mantenimiento', tracking=True,)
     
     # Relationships
@@ -44,7 +44,14 @@ class fletes_vehiculos(models.Model):
     @api.depends('capacidad', 'carga_promedio')
     def _compute_capacidad_restante(self):
         for record in self:
-                record.capacidad_restante = record.capacidad - record.carga_promedio
+            record.capacidad_restante = record.capacidad - record.carga_promedio
+    
+    @api.depends('asignacion_ids.fecha_finalizacion')
+    def _compute_kilometraje(self):
+        for record in self:
+            record.kilometraje = 0
+            if record.asignacion_ids:
+                record.kilometraje = record.asignacion_ids[-1].kilometraje_final
     
     # OnChange methods
     @api.onchange('carga_promedio', 'capacidad')
